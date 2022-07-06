@@ -18,30 +18,22 @@ class Solution {
         
         while(n1 != null || n2 != null) {
             if(n1 == null) {
-                curr.next = new ListNode(n2.val);
+                curr.next = n2;
                 n2 = n2.next;
-            }
-            else if(n2 == null) {
-                curr.next = new ListNode(n1.val);
+            } else if (n2 == null) {
+                curr.next = n1;
                 n1 = n1.next;
-            }
-            else {
-                if(n1.val > n2.val) {
-                    curr.next = new ListNode(n2.val);
+            } else {
+                if(n1.val < n2.val) {
+                    curr.next = n1;
+                    n1 = n1.next;
+                } else {
+                    curr.next = n2;
                     n2 = n2.next;
-                }
-                else if(n2.val > n1.val) {
-                    curr.next = new ListNode(n1.val);
-                    n1 = n1.next;
-                }
-                else {
-                    curr.next = new ListNode(n1.val);
-                    n1 = n1.next;
                 }
             }
             curr = curr.next;
         }
-        
         return head.next;
     }
 }
