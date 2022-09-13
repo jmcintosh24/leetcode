@@ -28,7 +28,6 @@ class Solution {
             } else
                 prev = curr;
             
-            
             curr = curr.next;
         }
         
